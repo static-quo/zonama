@@ -1,4 +1,8 @@
 {
   "parser": "babel-eslint",
-  "extends": ["standard", "standard-react"]
+  "extends": ["standard", "standard-react"],
+  "rules": {
+    "comma-dangle": 0,
+    "space-before-function-paren": 0,
+  }
 }

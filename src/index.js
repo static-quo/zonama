@@ -1,9 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './components/App.js'
+import { Provider } from 'react-redux'
+import AppContainer from './containers/AppContainer.js'
+import store from './redux/store'
 import './styles'
 
 ReactDOM.render(
-  <App message='Hello, world' />,
+  <Provider store={store}>
+    <AppContainer />
+  </Provider>,
   document.getElementById('root')
 )
