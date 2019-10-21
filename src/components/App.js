@@ -1,31 +1,58 @@
+import { hot } from 'react-hot-loader'
 import React from 'react'
 import PropTypes from 'prop-types'
-import { hot } from 'react-hot-loader'
+import SplashScreen from './SplashScreen'
+import View from './View'
+import SiteContext from './SiteContext'
+import { dashifyString } from '../util'
 
-function App (props) {
+function App(props) {
   const {
-    message,
-    onInputChange,
-    onSubmit,
-  } = props
+      isInitialized,
+      isLoading,
+      site,
+      currentRoute,
+      model,
+      error,
+      onInitialize,
+      onNavigate,
+    } = props,
+    className = 'application ' + (
+      currentRoute ? dashifyString(currentRoute.name) : ''
+    )
+  if (!isInitialized) {
+    onInitialize()
+    return null
+  }
   return (
-    <div className='App'>
-      <h1>{message}</h1>
-      <label htmlFor='message-input'>Message:</label><br />
-      <input
-        type='text'
-        name='message-input'
-        onChange={(e) => onInputChange(e, 'message-input')}
-      /><br />
-      <button type='button' onClick={onSubmit}>Update</button>
-    </div>
+    <SiteContext.Provider value={{
+      site: site,
+      route: currentRoute,
+      onNavigate: onNavigate
+    }}
+    >
+      <div className={className}>
+        {
+          isLoading ? (
+            <SplashScreen />
+          ) : (
+            <View site={site} route={currentRoute} model={model} />
+          )
+        }
+      </div>
+    </SiteContext.Provider>
   )
 }
 
 App.propTypes = {
-  message: PropTypes.string.isRequired,
-  onInputChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
+  isInitialized: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  site: PropTypes.object,
+  currentRoute: PropTypes.object,
+  model: PropTypes.object,
+  error: PropTypes.object,
+  onInitialize: PropTypes.func.isRequired,
+  onNavigate: PropTypes.func.isRequired,
 }
 
 export default hot(module)(App)

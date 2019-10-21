@@ -1,0 +1,20 @@
+{
+  "route": {
+    // A route has a controller of some type and a model the controller
+    // uses to render a view. Controller types are provided as "plugins".
+    // The "Page" controller displays a generic page of content
+    // dictated by a template and template bindings
+    "controller": "Page",
+    "model": {
+      // The "Page" controller model uses a template and a set of
+      // template bindings which bind data fragments to the template
+      // A binding is a name bound to a data address.  The address
+      // can be, e.g. a NoSQL document id or fragment.
+      "template": "LandingPage",
+      "bindings": {
+        "navigation": "#data-address",
+        "content": "#data-address"
+      }
+    }
+  }
+}

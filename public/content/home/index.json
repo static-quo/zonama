@@ -1,0 +1,24 @@
+{
+  "metadata": {
+    "title": "Hello Title",
+    "utility-menu-id": "utility",
+    "primary-menu-id": "primary",
+    "footer-menu-1-id": "footer-1",
+    "footer-menu-2-id": "footer-2",
+    "sub-footer-menu-id": "footer-legal"
+  },
+  "hero": {
+    "image": "/files/home-hero.jpg",
+    "heading": "Ditch your CMS. There is a new Static Quo.",
+    "sub-heading": "Lightning fast Single Page Content Apps. Easy to build, easy to deploy.",
+    "actions": [
+      {
+        "label": "Learn more",
+        "uri": "/zonama"
+      }
+    ]
+  },
+  "body": "<h1>Static Quo</h1><h2>Lorem Ipsum</h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at libero elementum, vulputate nisl ac, fringilla lacus. Sed porttitor venenatis metus a dapibus. Nulla ornare fringilla lorem, ut vestibulum odio dictum tincidunt. Maecenas congue risus nunc, ut faucibus est lacinia quis. Vivamus erat magna, lacinia eu gravida sed, luctus et nibh. Morbi et lacus felis. Quisque a aliquam libero, vitae gravida ipsum. Morbi sit amet porttitor enim. Praesent consectetur odio id massa accumsan ultrices. Sed dapibus nunc ac felis tristique bibendum. Integer purus nisi, fermentum quis dignissim in, dignissim ut purus. Suspendisse eu lectus hendrerit, ullamcorper nisi in, posuere mauris. Morbi ac volutpat tellus. Nunc finibus interdum tellus nec iaculis. Donec mauris neque, ultrices quis fermentum vel, faucibus vel magna. Vestibulum at enim eget leo pharetra tempor sit amet at sem.</p><h2>Maecenas in Volutpat Nibh</h2><p>Maecenas in volutpat nibh. Pellentesque iaculis sapien mattis ligula laoreet vehicula. Etiam tempus sapien id dolor mattis pharetra. Aliquam mattis purus metus, sed porttitor turpis vehicula ac. Proin sagittis nibh nec massa luctus convallis. Cras blandit, enim dictum porttitor auctor, nisi tortor dictum ligula, rutrum blandit neque ligula vel lorem. Ut ac sem eget sapien pellentesque viverra. Nullam ac porta tortor. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Phasellus et magna convallis lectus ultricies tempor quis vitae lectus.</p>",
+  "footer-copy": "<h3>Static Quo</h3><p>Lightning fast Single Page Content Apps.</p>",
+  "copyright": "© 2019- Static Quo / All rights reserved."
+}

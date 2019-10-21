@@ -1,0 +1,151 @@
+.application {
+  .page.basic-page {
+    main {
+      @include media-breakpoint-up(sm) {
+        .container-fluid {
+          padding-left: 30px;
+          padding-right: 30px;
+        }
+      }
+      .nav-link {
+        color: $navbar-link-color;
+      }
+      header {
+        background-color: $header-bg;
+        .banner {
+          display: none;
+          @include media-breakpoint-up(lg) { 
+            display: block;
+            padding-top: 8px;
+            padding-bottom: 8px;
+          }
+          @include media-breakpoint-up(lg) { 
+            .utility {
+              .nav {
+                justify-content: flex-end;
+              }
+            }
+          }
+        }
+        .primary-navigation {
+          @include media-breakpoint-up(lg) {
+            border-top: 1px solid $border-color;
+          }
+          .navbar {
+            @include media-breakpoint-up(lg) {
+              padding: 0px;
+              margin-left: 30px;
+              .nav-link {
+                border-left: 1px solid $border-color;
+                padding: 8px 24px;
+                &:last-child {
+                  border-right: 1px solid $border-color;
+                }
+              }
+            }
+            .navbar-brand {
+              color: $navbar-brand-color;
+              @include media-breakpoint-up(lg) { 
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      .hero {
+        img {
+          width: 100%;
+        }
+        .hero-copy {
+          @include media-breakpoint-up(md) {
+            position: absolute;
+            top: calc(100% / 4);
+          }
+          h1 {
+            position: absolute;
+            top: 0;
+            color: $white;
+            padding-top: 30px;
+            padding-left: $grid-gutter-width / 2;
+            @include media-breakpoint-up(sm) {
+              padding-top: 60px;
+              padding-left: $grid-gutter-width;
+            }
+            @include media-breakpoint-up(md) {
+              position: static;
+              top: auto;
+            }
+          }
+          h2 {
+            padding: 16px $grid-gutter-width / 2;
+            text-align: center;
+            @include media-breakpoint-up(sm) { 
+              position: absolute;
+              bottom: 60px;
+              color: $white;
+              padding-left: $grid-gutter-width;
+            }
+            @include media-breakpoint-up(md) {
+              position: static;
+              bottom: auto;
+              text-align: left;
+            }
+          }
+          .actions {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: center;
+            @include media-breakpoint-up(sm) { 
+              position: absolute;
+              bottom: 20px;
+              color: $white;
+              width: 100%;
+            }
+            @include media-breakpoint-up(md) {
+              position: static;
+              bottom: auto;
+              justify-content: flex-start;
+              padding: 0px $grid-gutter-width;
+            }
+          }
+        }
+      }
+      .content {
+        margin: 30px 0px;
+        padding: 30px 0px;
+        border-top: 1px solid $border-color;
+        border-bottom: 1px solid $border-color;
+        @include media-breakpoint-up(sm) { 
+          margin-top: 0px;
+          border-top: 0px;  
+        }
+      }
+      footer {
+        nav {
+          li {
+            padding: 0px;
+          }
+        }
+        &.primary-footer {
+          margin-bottom: 30px;
+          padding-bottom: 30px;
+          border-bottom: 1px solid $border-color;
+          @include media-breakpoint-up(md) {
+            .row {
+              flex-wrap: nowrap;
+            }
+          }
+        }
+        &.secondary-footer {
+          margin-bottom: 15px;
+          .nav {
+            justify-content: flex-end;
+            li {
+              padding: 0px 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

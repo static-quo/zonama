@@ -1,5 +1,5 @@
-#root {
-  .App {
-    background-color: #fff;
-  }
-}
+@import "sass/variables";
+@import "~bootstrap/scss/bootstrap";
+@import "sass/copy";
+@import "sass/global";
+@import "sass/display";

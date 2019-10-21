@@ -1,23 +1,34 @@
 import { connect } from 'react-redux'
+
 import App from '../components/App'
 import {
-  updateView,
-  updateFormInput,
+  initialize,
+  loadRouteByUrl,
 } from '../redux/actions'
+import { isLocal } from '../util'
 
 const mapStateToProps = state => {
   return {
-    message: state.message,
+    isInitialized: state.isInitialized,
+    isLoading: state.isLoading,
+    site: state.site,
+    currentRoute: state.currentRoute,
+    model: state.model,
+    error: state.error,
   }
 }
 
 const mapStateToDispatch = dispatch => {
   return {
-    onSubmit: () => {
-      dispatch(updateView())
+    onInitialize: () => {
+      dispatch(initialize())
     },
-    onInputChange: (evt, name) => {
-      dispatch(updateFormInput(evt, 'main', name))
+    onNavigate: (evt, uri) => {
+      const url = uri
+      if (isLocal(url)) {
+        evt.preventDefault()
+        dispatch(loadRouteByUrl(url))
+      }
     }
   }
 }
