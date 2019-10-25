@@ -1,8 +1,10 @@
 /* eslint-env node */
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const path = require('path')
+const webpack = require('webpack')
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
+const contentBase =
+  process.env.ZONAMA_CONTENT_BASE || path.join(__dirname, 'public/')
 
 module.exports = merge(common, {
   mode: 'development',
@@ -25,15 +27,16 @@ module.exports = merge(common, {
     ]
   },
   devServer: {
-    contentBase: path.join(__dirname, 'public/'),
+    contentBase: contentBase,
     port: 3000,
     publicPath: 'http://localhost:3000/dist/',
-    hotOnly: true
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css'
-    })
-  ]
+    hot: true,
+    before: (app, server) => {
+      // This lets us keep the stylesheet reference to main.version.css
+      // in index.html files while we test
+      app.get('/dist/main*.css', function (req, res) {
+        res.status(200).type('text/css').send('')
+      })
+    }
+  }
 })

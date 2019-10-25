@@ -1,4 +1,3 @@
-import { hot } from 'react-hot-loader'
 import React from 'react'
 import PropTypes from 'prop-types'
 import SplashScreen from './SplashScreen'
@@ -55,4 +54,4 @@ App.propTypes = {
   onNavigate: PropTypes.func.isRequired,
 }
 
-export default hot(module)(App)
+export default App

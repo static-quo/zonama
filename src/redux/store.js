@@ -12,9 +12,4 @@ const store = createStore(
   )
 )
 
-if (module.hot) {
-  module.hot.accept('./reducers/app', () => {
-    store.replaceReducer(app)
-  })
-}
 export default store

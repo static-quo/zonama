@@ -33,13 +33,17 @@ export default function Navbar(props) {
         >
           {menu.items.map((item, idx) => {
             return (
-              <NavLink
-                uri={item.uri}
-                label={item.label}
+              <Nav.Item
                 key={`${menuId}-${idx}`}
+                as='li'
               >
-                {sanitizeHtml(item.label)}
-              </NavLink>
+                <NavLink
+                  uri={item.uri}
+                  label={item.label}
+                >
+                  {sanitizeHtml(item.label)}
+                </NavLink>
+              </Nav.Item>
             )
           })}
         </Nav>

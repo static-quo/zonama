@@ -25,7 +25,6 @@ export default function NavLink(props) {
             role='link'
             aria-label={sanitizeAttr(label)}
             onSelect={(key, evt) => context.onNavigate(evt, url)}
-            as='li'
           >
             {label}
           </Nav.Link>

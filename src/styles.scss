@@ -1,5 +1,24 @@
+/* Variables and bootstrap overrides */
 @import "sass/variables";
-@import "~bootstrap/scss/bootstrap";
+
+/* Boostrap */
+/* Required */
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";
+@import "~bootstrap/scss/mixins";
+
+/* Optional */
+@import "~bootstrap/scss/root";
+@import "~bootstrap/scss/reboot";
+@import "~bootstrap/scss/type";
+@import "~bootstrap/scss/grid";
+@import "~bootstrap/scss/utilities/flex";
+@import "~bootstrap/scss/buttons";
+@import "~bootstrap/scss/nav";
+@import "~bootstrap/scss/navbar";
+@import "~bootstrap/scss/images";
+
+/* Our styles */
 @import "sass/copy";
 @import "sass/global";
 @import "sass/display";

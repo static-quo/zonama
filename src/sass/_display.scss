@@ -9,6 +9,7 @@
       }
       .nav-link {
         color: $navbar-link-color;
+        padding: 0px;
       }
       header {
         background-color: $header-bg;
@@ -35,7 +36,7 @@
             @include media-breakpoint-up(lg) {
               padding: 0px;
               margin-left: 30px;
-              .nav-link {
+              .nav-item {
                 border-left: 1px solid $border-color;
                 padding: 8px 24px;
                 &:last-child {

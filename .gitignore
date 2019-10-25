@@ -6,3 +6,4 @@ build
 *.tgz
 npm-debug.log*
 .npm/
+dist/

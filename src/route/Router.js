@@ -1,4 +1,6 @@
-import 'whatwg-url'
+import {
+  parseUrl
+} from '../util'
 
 export const MODES = {
   HASH: 0,
@@ -33,7 +35,7 @@ class Router {
           ...this.routes[name],
           name: name,
           locale: locale,
-          params: params || new URLSearchParams(),
+          params: params,
           rawParams: params ? params.toString() : '',
         }
         : null
@@ -56,17 +58,11 @@ class Router {
 
   getRouteByUrl(url, site) {
     if (typeof url === 'string') {
-      url = new URL(url, window.location.href)
+      url = parseUrl(url)
     }
 
-    const path = this._getPathFromUrl(url)
-    let params
-
-    if (url.searchParams) {
-      params = url.searchParams
-    } else if (url.search) {
-      params = new URLSearchParams(url.search)
-    }
+    const path = this._getPathFromUrl(url),
+      params = url.query
 
     if (!path || path === '/') {
       return this.getRoute('home')
@@ -97,23 +93,11 @@ class Router {
   }
 
   serialize(route) {
-    if (!route.params) {
-      return route
-    }
-    return {
-      ...route,
-      params: null,
-    }
+    return route
   }
 
   deserialize(state) {
-    if (!state.qs) {
-      return state
-    }
-    return {
-      ...state,
-      params: new URLSearchParams(state.rawParams),
-    }
+    return state
   }
 }
 

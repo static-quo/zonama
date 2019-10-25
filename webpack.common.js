@@ -1,10 +1,11 @@
 /* eslint-env node */
 const path = require('path')
-const webpack = require('webpack')
+const packageJson = require('./package.json')
+const version = packageJson.version
 
 module.exports = {
   entry: {
-    main: './src/index.js'
+    main: './src/index.js',
   },
   module: {
     rules: [
@@ -14,19 +15,26 @@ module.exports = {
         loader: 'babel-loader',
         options: {
           presets: ['@babel/env'],
-          cacheDirectory: true,
-          plugins: ['react-hot-loader/babel'],
+          cacheDirectory: true
         }
       }
     ]
   },
   resolve: { extensions: ['*', '.js', '.jsx', '.scss'] },
   output: {
-    filename: '[name].bundle.js',
+    filename: '[name].' + version + '.bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/'
   },
-  plugins: [
-    new webpack.HotModuleReplacementPlugin()
-  ]
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        vendors: {
+          chunks: 'all',
+          filename: 'vendor.bundle.js',
+          test: /[\\/]node_modules[\\/]/,
+        }
+      }
+    }
+  }
 }

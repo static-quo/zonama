@@ -1,7 +1,5 @@
 import dashify from 'dashify'
-import { sanitizeUrl as urlSanitizer } from '@braintree/sanitize-url'
-import htmlSanitizer from 'sanitize-html'
-
+import Url from 'url-parse'
 const localUrlRe = /^\s*[#]?\//
 
 const sanitizeOptions = {
@@ -41,16 +39,22 @@ export const dashifyString = (str) => {
 }
 
 export const sanitizeUrl = (url) => {
-  return urlSanitizer(url)
+  // @TODO
+  return url
 }
 
 export const sanitizeHtml = (html) => {
-  return htmlSanitizer(html, sanitizeOptions)
+  // @TODO
+  return html
 }
 
 export const sanitizeAttr = (attr) => {
   // @TODO
   return attr
+}
+
+export const parseUrl = (url) => {
+  return new Url(url)
 }
 
 export const isLocal = (uri) => {
