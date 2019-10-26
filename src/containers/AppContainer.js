@@ -24,6 +24,7 @@ const mapStateToDispatch = dispatch => {
       dispatch(initialize())
     },
     onNavigate: (evt, uri) => {
+      console.debug(uri)
       const url = uri
       if (isLocal(url)) {
         evt.preventDefault()

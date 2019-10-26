@@ -1,16 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Nav from 'react-bootstrap/Nav'
+import BSButton from 'react-bootstrap/Button'
 
 import SiteContext from '../SiteContext'
-import { sanitizeAttr, sanitizeUrl, isLocal } from '../../util'
+import { sanitizeHtml, sanitizeAttr, sanitizeUrl, isLocal } from '../../util'
 import router, { MODES } from '../../route/Router'
 
-export default function NavLink(props) {
+export default function Button(props) {
   const {
-    uri,
     label,
-    target
+    uri,
   } = props
   return (
     <SiteContext.Consumer>
@@ -20,22 +19,22 @@ export default function NavLink(props) {
           url = '#' + url
         }
         return (
-          <Nav.Link
+          <BSButton
             href={sanitizeUrl(url)}
             role='link'
             aria-label={sanitizeAttr(label)}
-            onSelect={(key, evt) => context.onNavigate(evt, url)}
+            onClick={(evt) => context.onNavigate(evt, url)}
           >
-            {label}
-          </Nav.Link>
+            {sanitizeHtml(label)}
+          </BSButton>
         )
       }}
     </SiteContext.Consumer>
   )
 }
 
-NavLink.propTypes = {
+Button.propTypes = {
+  label: PropTypes.string.isRequired,
   uri: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  target: PropTypes.string,
+  ...BSButton.propTypes
 }

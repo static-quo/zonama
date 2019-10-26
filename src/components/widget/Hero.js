@@ -4,9 +4,10 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Image from 'react-bootstrap/Image'
-import Button from 'react-bootstrap/Button'
 
-import { sanitizeHtml, sanitizeUrl, sanitizeAttr } from '../../util'
+import Button from './Button'
+
+import { sanitizeHtml } from '../../util'
 
 export default function Hero(props) {
   const {
@@ -39,12 +40,9 @@ export default function Hero(props) {
                   {actions.map((item, idx) => (
                     <li role='listitem' key={`hero-actions-${idx}`}>
                       <Button
-                        role='button'
-                        aria-label={sanitizeAttr(item.label)}
-                        href={sanitizeUrl(item.uri)}
-                      >
-                        {sanitizeHtml(item.label)}
-                      </Button>
+                        uri={item.uri}
+                        label={item.label}
+                      />
                     </li>
                   ))}
                 </ul>

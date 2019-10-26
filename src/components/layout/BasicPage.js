@@ -73,11 +73,15 @@ export default function BasicPage(props) {
           </section>
         )
       }
-      <section className='content' role='region' aria-label='Primary content'>
-        <Container fluid>
-          <RichText body={model.body} />
-        </Container>
-      </section>
+      {
+        model.body && (
+          <section className='content' role='region' aria-label='Primary content'>
+            <Container fluid>
+              <RichText body={model.body} />
+            </Container>
+          </section>
+        )
+      }
       <footer
         className='primary-footer'
         role='contentinfo'
